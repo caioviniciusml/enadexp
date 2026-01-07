@@ -84,7 +84,10 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
         className="flex flex-col gap-4"
       >
         <FormDescription className="text-justify leading-relaxed">
-          Os Parametros serão utilizados como pesos preferenciais para gerar uma Lista Aleatória. Se não houverem questões suficientes que se encaixem nos filtros escolhidos, serão utilizadas outras questões escolhidas aleatoriamente.
+          Os Parametros serão utilizados como pesos preferenciais para gerar uma
+          Lista Aleatória. Se não houverem questões suficientes que se encaixem
+          nos filtros escolhidos, serão utilizadas outras questões escolhidas
+          aleatoriamente.
         </FormDescription>
         <FormField
           control={form.control}
@@ -108,7 +111,7 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
               <FormControl>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="secondary">Selecionar</Button>
+                    <Button>Selecionar</Button>
                   </DropdownMenuTrigger>
 
                   <DropdownMenuContent className="w-60">
@@ -168,6 +171,7 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
               <FormItem className="flex gap-1 items-center">
                 <FormControl>
                   <Checkbox
+                    className="border border-zinc-900"
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
@@ -184,6 +188,7 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
               <FormItem className="flex gap-1 items-center">
                 <FormControl>
                   <Checkbox
+                    className="border border-zinc-900"
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
@@ -200,6 +205,7 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
               <FormItem className="flex gap-1 items-center">
                 <FormControl>
                   <Checkbox
+                    className="border border-zinc-900"
                     checked={field.value}
                     onCheckedChange={field.onChange}
                   />
@@ -218,6 +224,7 @@ export function CreateRandomListForm({ onBack }: CreateRandomListFormProps) {
             <FormItem className="mt-2 flex items-center gap-2">
               <FormControl>
                 <Checkbox
+                  className="border border-zinc-900"
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
