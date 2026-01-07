@@ -59,7 +59,9 @@ export function ExamReportClient({ examId, userRole }: ExamReportClientProps) {
           comparison = a.correctAnswers - b.correctAnswers;
           break;
         case "date":
-          comparison = a.submittedAt.getTime() - b.submittedAt.getTime();
+          const date1 = new Date(a.submittedAt);
+          const date2 = new Date(b.submittedAt)
+          comparison = date1.getTime() - date2.getTime();
           break;
       }
       return sortDirection === "asc" ? comparison : -comparison;

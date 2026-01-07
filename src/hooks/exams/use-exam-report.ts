@@ -17,7 +17,6 @@ export function useExamReport(examId: string) {
           },
         }
       );
-      console.log(response);
 
       const examReport: ExamReport = await response.json();
       return examReport;

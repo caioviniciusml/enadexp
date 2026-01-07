@@ -58,7 +58,7 @@ export function ExamPresentation({ userRole, examId }: ListPresentationProps) {
         {userRole === UserRole.PROFESSOR && (
           <div className="flex items-center gap-2">
             <Button
-              disabled={isPending}
+              disabled={isPending || examData.id === "f99d49d8-0521-44d9-a854-e1d3616fddf5"}
               className="cursor-pointer"
               variant="destructive"
               onClick={onDelete}
