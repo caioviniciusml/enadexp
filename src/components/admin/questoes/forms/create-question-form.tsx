@@ -297,7 +297,7 @@ export function CreateQuestionForm({
                 <FormControl>
                   <Select
                     onValueChange={field.onChange}
-                    value={field.value ? field.value.toString() : undefined}
+                    value={field.value ? field.value.toString() : ""}
                   >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Dificuldade" />
@@ -333,7 +333,7 @@ export function CreateQuestionForm({
                       field.onChange(value);
                       handleCorrectOptionChange(value);
                     }}
-                    value={field.value ? field.value.toString() : undefined}
+                    value={field.value ? field.value.toString() : ""}
                   >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Selecione" />
@@ -362,7 +362,7 @@ export function CreateQuestionForm({
                 <FormControl>
                   <Select
                     onValueChange={field.onChange}
-                    value={field.value ? field.value.toString() : undefined}
+                    value={field.value ? field.value.toString() : ""}
                   >
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Selecione" />
