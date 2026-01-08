@@ -115,9 +115,9 @@ export function ExamCard({
           </Link>
         </div>
       ) : (
-        <Button disabled={isDisabled} className="w-full cursor-pointer">
+        <Button disabled={isDisabled} className="mt-4 w-full cursor-pointer">
           <Link
-            className="w-full mt-4 flex gap-1 cursor-pointer"
+            className="w-full flex gap-1 cursor-pointer"
             href={`${pathname}/${examId}`}
           >
             {buttonLabel}
