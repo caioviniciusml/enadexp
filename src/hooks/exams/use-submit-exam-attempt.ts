@@ -39,5 +39,9 @@ export function useSubmitExamAttempt() {
       queryClient.invalidateQueries({ queryKey: ["all-exams"] });
       router.push(`/${session?.userData.role.toLowerCase()}/simulados`);
     },
+    onError: async () => {
+      const session = await getSession();
+      router.push(`/${session?.userData.role.toLowerCase()}/simulados`);
+    },
   });
 }
