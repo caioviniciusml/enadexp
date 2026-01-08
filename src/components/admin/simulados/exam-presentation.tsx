@@ -10,14 +10,15 @@ import { useState } from "react";
 import { QuestionItem } from "../listas/question-item";
 import { useSubmitExamAttempt } from "@/hooks/exams/use-submit-exam-attempt";
 
-interface ListPresentationProps {
+interface ExamPresentationProps {
   userRole: UserRole;
   examId: string;
 }
 
-export function ExamPresentation({ userRole, examId }: ListPresentationProps) {
+export function ExamPresentation({ userRole, examId }: ExamPresentationProps) {
   const { data: examData, isError } = useExam(examId);
-  const { mutateAsync: submitExamAttempt } = useSubmitExamAttempt();
+  const { mutateAsync: submitExamAttempt, isPending: isSubmitPending } =
+    useSubmitExamAttempt();
   const { mutateAsync: deleteExam, isPending } = useDeleteExam();
   const [answers, setAnswers] = useState<ExamAttempt["answers"]>([]);
 
@@ -58,7 +59,10 @@ export function ExamPresentation({ userRole, examId }: ListPresentationProps) {
         {userRole === UserRole.PROFESSOR && (
           <div className="flex items-center gap-2">
             <Button
-              disabled={isPending || examData.id === "f99d49d8-0521-44d9-a854-e1d3616fddf5"}
+              disabled={
+                isPending ||
+                examData.id === "f99d49d8-0521-44d9-a854-e1d3616fddf5"
+              }
               className="cursor-pointer"
               variant="destructive"
               onClick={onDelete}
@@ -103,10 +107,19 @@ export function ExamPresentation({ userRole, examId }: ListPresentationProps) {
       })}
       {userRole !== UserRole.PROFESSOR && (
         <Button
-          disabled={answers.length !== examData.questions.length}
+          disabled={
+            answers.length !== examData.questions.length || isSubmitPending
+          }
           onClick={onSubmit}
         >
-          Enviar Respostas
+          {isSubmitPending ? (
+            <span className="flex items-center gap-1">
+              Eviando
+              <Spinner />
+            </span>
+          ) : (
+            <span>Enviar Respostas</span>
+          )}
         </Button>
       )}
     </div>
